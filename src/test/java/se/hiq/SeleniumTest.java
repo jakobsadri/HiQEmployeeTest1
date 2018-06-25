@@ -40,7 +40,7 @@ public class SeleniumTest {
 
         // Write username and password
         WebElement nameBox1 = driver.findElement(By.name("username"));
-        nameBox1.sendKeys("kallet");
+        nameBox1.sendKeys("fridab");
         WebElement nameBox2 = driver.findElement(By.name("password"));
         nameBox2.sendKeys("1234");
 
@@ -88,7 +88,7 @@ public class SeleniumTest {
 
         // Write username and password
         WebElement nameBox1 = driver.findElement(By.name("username"));
-        nameBox1.sendKeys("kallet");
+        nameBox1.sendKeys("fridab");
         WebElement nameBox2 = driver.findElement(By.name("password"));
         nameBox2.sendKeys("1234");
 
@@ -118,7 +118,7 @@ public class SeleniumTest {
 
         // Write username and password
         WebElement nameBox1 = driver.findElement(By.name("username"));
-        nameBox1.sendKeys("kallet");
+        nameBox1.sendKeys("fridab");
         WebElement nameBox2 = driver.findElement(By.name("password"));
         nameBox2.sendKeys("1234");
 
@@ -148,7 +148,7 @@ public class SeleniumTest {
 
         // Write username and password
         WebElement nameBox1 = driver.findElement(By.name("username"));
-        nameBox1.sendKeys("kallet");
+        nameBox1.sendKeys("fridab");
         WebElement nameBox2 = driver.findElement(By.name("password"));
         nameBox2.sendKeys("1234");
 
@@ -178,7 +178,7 @@ public class SeleniumTest {
 
         // Write username and password
         WebElement nameBox1 = driver.findElement(By.name("username"));
-        nameBox1.sendKeys("kallet");
+        nameBox1.sendKeys("fridab");
         WebElement nameBox2 = driver.findElement(By.name("password"));
         nameBox2.sendKeys("1234");
 
