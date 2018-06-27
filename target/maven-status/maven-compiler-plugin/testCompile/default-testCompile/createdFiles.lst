@@ -1,9 +1,0 @@
-com\seleniumsimplified\webdriver\manager\Driver$BrowserName.class
-com\seleniumsimplified\webdriver\manager\ProxyPort.class
-com\seleniumsimplified\webdriver\manager\Driver$1.class
-com\seleniumsimplified\webdriver\manager\Driver$2.class
-com\seleniumsimplified\webdriver\manager\CookieManager.class
-com\seleniumsimplified\webdriver\manager\EnvironmentPropertyReader.class
-com\seleniumsimplified\webdriver\manager\TestEnvironment.class
-com\seleniumsimplified\webdriver\manager\Driver.class
-se\hiq\SeleniumTest.class
