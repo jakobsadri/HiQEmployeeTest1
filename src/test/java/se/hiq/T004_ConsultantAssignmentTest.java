@@ -5,7 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class T_004_AssignmentTest {
+public class T004_ConsultantAssignmentTest {
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -17,16 +17,17 @@ public class T_004_AssignmentTest {
 	public void Test_004() {
 		System.out.println("--------------------- Test#004 ---------------------");
 		// login
-		Functions.login();
+		Functions.loginAsConsultant();
 
 		// Go to My Assigment
-		Functions.driver.findElement(By.id("navbarDropdownMenuLink")).click();
-		Functions.driver.findElement(By.xpath("//button[@class='dropdown-item color-hiq-yellow'][2]")).click();
+		Functions.driver.findElement(By.id("navProfile")).click();
+		Functions.driver.findElement(By.id("navAssignments")).click();
+		
+		
+		//Functions.driver.findElement(By.xpath("//button[@class='dropdown-item color-hiq-yellow'][2]")).click();
 
 		// click on Sign out
-		Functions.driver.findElement(By.id("navbarDropdownMenuLink")).click();
-		Functions.driver.findElement(By.xpath("//button[@class='dropdown-item color-hiq-yellow'][6]")).click();
-		// driver.navigate().back();
+		Functions.signOutAsConsultant();
 	}
 
 	@AfterClass
