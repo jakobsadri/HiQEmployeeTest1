@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
  *  write new profile info. After verifying the written info, restore the current profile info.
  *=======================================================================================================
  */
-public class T002_2_En_ConsultantProfileTest {
+public class Consultant_En_HiQTest {
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -43,7 +43,7 @@ public class T002_2_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -87,7 +87,7 @@ public class T002_2_En_ConsultantProfileTest {
 
 		
 		  // login 
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 		  
 		  // Go to My Profile
 		  Functions.driver.findElement(By.id("navProfile")).click();
@@ -108,7 +108,7 @@ public class T002_2_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

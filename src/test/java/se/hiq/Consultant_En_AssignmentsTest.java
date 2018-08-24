@@ -5,7 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class T004_ConsultantAssignmentTest {
+public class Consultant_En_AssignmentsTest {
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -17,7 +17,7 @@ public class T004_ConsultantAssignmentTest {
 	public void Test_004() throws InterruptedException {
 		System.out.println("--------------------- Test#004 ---------------------");
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Assigment
 		Functions.driver.findElement(By.id("navProfile")).click();

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
  * This test verify consultant profile -> Competences.... TBD
  *=======================================================================================================
  */
-public class T002_3_En_ConsultantProfileTest {
+public class Consultant_En_CompetencesTest {
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -36,7 +36,7 @@ public class T002_3_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

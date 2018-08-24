@@ -17,7 +17,7 @@ import com.gargoylesoftware.htmlunit.Page;
  *  write new profile info. After verifying the written info, restore the current profile info.
  *=======================================================================================================
  */
-public class T002_1_En_ConsultantProfileTest {
+public class Consultant_En_PersonalDetailsTest {
 	String[] profileId = { "aboutMe", "firstName", "middleNames", "lastName", "dateOfBirth", "email", "phoneNumber" };
 	int profileArraySize = profileId.length;
 	String[] profileCurrentName = { "Jag är en super superutvecklare", "Adam", "Nils", "Larsson", "1970-01-01",
@@ -40,7 +40,7 @@ public class T002_1_En_ConsultantProfileTest {
 		// Add new profile info
 		// --------------------------------------------------
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -98,7 +98,7 @@ public class T002_1_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -119,7 +119,7 @@ public class T002_1_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

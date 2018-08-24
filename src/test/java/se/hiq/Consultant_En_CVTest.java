@@ -5,7 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class T005_ConsultantCVTest {
+public class Consultant_En_CVTest {
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -17,7 +17,7 @@ public class T005_ConsultantCVTest {
 	public void Test_007() throws InterruptedException {
 		System.out.println("--------------------- Test#007 ---------------------");
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My CV
 		Functions.driver.findElement(By.id("navProfile")).click();

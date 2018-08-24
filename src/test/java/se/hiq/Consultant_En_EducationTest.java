@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
  * Verify them.
  *=======================================================================================================
  */
-public class T002_4_En_ConsultantProfileTest {
+public class Consultant_En_EducationTest {
 	String[] profileId = { "", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -38,7 +38,7 @@ public class T002_4_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant_En();
+		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
