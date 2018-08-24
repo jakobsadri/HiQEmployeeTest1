@@ -14,10 +14,10 @@ public class T005_ConsultantCVTest {
 
 	@Test
 	// Test#003, check Import profile
-	public void Test_007() {
+	public void Test_007() throws InterruptedException {
 		System.out.println("--------------------- Test#007 ---------------------");
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My CV
 		Functions.driver.findElement(By.id("navProfile")).click();

@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 
@@ -32,22 +33,24 @@ public class T002_1_En_ConsultantProfileTest {
 
 	@Test
 	// Test#002.1, check Profile ->> Personal info
-	public void Profile_002_1_Test() {
+	public void Profile_002_1_Test() throws InterruptedException {
 		System.out.println("--------------------- Test#002.1 [Profile -> Personal details]---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info
 		// --------------------------------------------------
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
 
 		// Click on Consultant info, update info and save
 
-		  //WebElement UploadImg = Functions.driver.findElement(By.id("profileImage"));
-		  //UploadImg.click();
+//		  WebElement UploadImg = Functions.driver.findElement(By.id("profileImage"));
+//		  UploadImg.click();
+//		  UploadImg.sendKeys(Keys.RETURN);
+//		  Thread.sleep(500);
 		  //UploadImg.sendKeys("C:/");
 		  
 		  //UploadImg.sendKeys("C:\\Home_2017\\HiQ_CV\\user-avatar.jpg");
@@ -95,7 +98,7 @@ public class T002_1_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -116,7 +119,7 @@ public class T002_1_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

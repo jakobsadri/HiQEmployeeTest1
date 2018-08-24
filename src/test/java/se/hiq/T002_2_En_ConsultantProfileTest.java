@@ -1,6 +1,9 @@
 package se.hiq;
 
 import org.openqa.selenium.support.ui.Select;
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,9 +20,12 @@ public class T002_2_En_ConsultantProfileTest {
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
-	String[] profileCurrentName = { "HICARE", "Utvecklare", "STOCKHOLM", "1994-11-01", "2014-09-12",
+	String[] profileCurrentName = { "Hipe", "Developer", "STOCKHOLM", "1994-11-01", "2014-09-12",
 			"A brain surgeon" };
-	String[] profileTestName = { "HICLOUD", "Testare", "MALMO", "2001-09-02", "2002-12-12", "Test" };
+	String[] profileTestName = { "MarkIT", "Tester", "MALMO", "2001-09-02", "2002-12-12", "Test" };
+	//item by value (MarkIT = 11), Posation 11
+	String[] profileTestName1 = { "11", "Tester", "MALMO", "2001-09-02", "2002-12-12", "Test" };
+
 	// String[] profileCurrentName = new String[profileArraySize];
 
 	@BeforeClass
@@ -29,7 +35,7 @@ public class T002_2_En_ConsultantProfileTest {
 
 	@Test
 	// Test#002.2, check Profile ->> Personal info
-	public void Profile_002_2_Test() {
+	public void Profile_002_2_Test() throws InterruptedException {
 		System.out.println("--------------------- Test#002.2 [Profile -> HIQ] ---------------------");
 
 		// --------------------------------------------------
@@ -37,7 +43,7 @@ public class T002_2_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -79,29 +85,30 @@ public class T002_2_En_ConsultantProfileTest {
 		// Verify new profile info
 		// --------------------------------------------------
 
-		/*
-		 * // login Functions.loginAsConsultant();
-		 * 
-		 * // Go to My Profile
-		 * Functions.driver.findElement(By.id("navProfile")).click();
-		 * Functions.driver.findElement(By.id("ngb-tab-1")).click();
-		 * 
-		 * // Click on Consultant info, update info and save for (int i = 0; i <=
-		 * profileArraySize - 1; i++) { String profileBoxInfo =
-		 * Functions.driver.findElement(By.id(profileId[i])).getAttribute("value");
-		 * assertEquals("bypass",
-		 * Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"),
-		 * profileTestName[i]); System.out.println(profileBoxInfo+ "  =  "+
-		 * profileTestName[i]); }
-		 * 
-		 * // click on Sign out Functions.signOutAsConsultant();
-		 */
+		
+		  // login 
+		Functions.loginAsConsultant_En();
+		  
+		  // Go to My Profile
+		  Functions.driver.findElement(By.id("navProfile")).click();
+		  Functions.driver.findElement(By.id("ngb-tab-1")).click();
+		
+		  // Click on Consultant info, update info and save 
+		  for (int i = 0; i <= profileArraySize - 1; i++) { 
+			  	String profileBoxInfo = Functions.driver.findElement(By.id(profileId[i])).getAttribute("value");
+			  	assertEquals("bypass",Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"), profileTestName1[i]); 
+			  	System.out.println(profileBoxInfo + "  =  "+ profileTestName1[i]);
+			}
+		 
+		 // click on Sign out 
+		 Functions.signOutAsConsultant();
+		 
 		// --------------------------------------------------
 		// Restore the current profile info
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
@@ -137,7 +144,6 @@ public class T002_2_En_ConsultantProfileTest {
 		}
 		// click on Sign out
 		Functions.signOutAsConsultant();
-
 	}
 
 	@AfterClass

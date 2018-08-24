@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 
 /*=========================================================================================================
- * This test verify consultant profile -> SKILLs.... TBD
+ * This test verify consultant profile -> Competences.... TBD
  *=======================================================================================================
  */
 public class T002_3_En_ConsultantProfileTest {
@@ -27,8 +27,8 @@ public class T002_3_En_ConsultantProfileTest {
 	}
 
 	@Test
-	// Test#002.3, check Profile ->> Skills
-	public void Profile_002_3_Test() {
+	// Test#002.3, check Profile ->> Competences
+	public void Profile_002_3_Test() throws InterruptedException {
 		System.out.println("--------------------- Test#002.3 [Profile -> SKILLS] ---------------------");
 
 		// --------------------------------------------------
@@ -36,7 +36,7 @@ public class T002_3_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

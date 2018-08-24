@@ -19,7 +19,7 @@ public class T006_ConsultantSearchTest {
 	public void Test_005() throws InterruptedException {
 		System.out.println("--------------------- Test#005 ---------------------");
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Search
 		Functions.driver.findElement(By.id("navProfile")).click();

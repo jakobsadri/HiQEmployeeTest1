@@ -14,10 +14,10 @@ public class T004_ConsultantAssignmentTest {
 
 	@Test
 	// Test#004, check Assignment
-	public void Test_004() {
+	public void Test_004() throws InterruptedException {
 		System.out.println("--------------------- Test#004 ---------------------");
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Assigment
 		Functions.driver.findElement(By.id("navProfile")).click();

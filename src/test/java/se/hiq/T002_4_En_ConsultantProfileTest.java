@@ -30,7 +30,7 @@ public class T002_4_En_ConsultantProfileTest {
 
 	@Test
 	// Test#002.4, check Profile ->> Personal info
-	public void Profile_002_4_Test() {
+	public void Profile_002_4_Test() throws InterruptedException {
 		System.out.println("--------------------- Test#002.4 [Profile -> Education] ---------------------");
 
 		// --------------------------------------------------
@@ -38,7 +38,7 @@ public class T002_4_En_ConsultantProfileTest {
 		// --------------------------------------------------
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
 		// Go to My Profile
 		Functions.driver.findElement(By.id("navProfile")).click();

@@ -17,15 +17,27 @@ public class T001_En_ConsultantAccessTest {
 	}
 
 	@Test
-	// Test#001, test URL and login check
-	public void Test_001() {
-		System.out.println("--------------------- Test#001 [Access to URL]---------------------");
+	// Test#001, test URL En and login check
+	public void Test_001_1() throws InterruptedException {
+		System.out.println("--------------------- Test#001_1 [Access to URL En]---------------------");
 
 		// login
-		Functions.loginAsConsultant();
+		Functions.loginAsConsultant_En();
 
-		// Check if login success by checking dashboard title name
-		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+		// click on Sign out
+		Functions.signOutAsConsultant();
+		// Functions.driver.findElement(By.id("profileMenu")).click();
+		// Functions.driver.findElement(By.id("navSignout")).click();
+	}
+	
+	//Test URL-Sv
+	@Test
+	// Test#001, test URL Sv and login check
+	public void Test_001_2() throws InterruptedException {
+		System.out.println("--------------------- Test#001_2 [Access to URL Sv]---------------------");
+
+		// login
+		Functions.loginAsConsultant_Sv();
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
