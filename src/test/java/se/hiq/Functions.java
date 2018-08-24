@@ -1,6 +1,7 @@
 package se.hiq;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -172,5 +173,19 @@ public class Functions {
 		// verify
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
-
+	
+	static void verifyLang_en2sv() {
+	//Change language from En to Sv
+			driver.findElement(By.id("consultantMenu")).click();
+			driver.findElement(By.xpath("//a[@href='/sv/profile/1']")).click();
+			String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+			assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter")); 	
+	}
+	static void verifyLang_sv2en() {
+		//Change language from Sv to En
+			driver.findElement(By.id("consultantMenu")).click();
+			driver.findElement(By.xpath("//a[@href='/en/profile/1']")).click();
+			String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+			assertTrue(verify_lang_en.contains("Profile") & verify_lang_en.contains("Assignments")); 
+	}
 }

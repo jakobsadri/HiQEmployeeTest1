@@ -32,7 +32,13 @@ public class Consultant_En_AccessTest {
 		String verify_text = Functions.driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		System.out.println(verify_text);
 		assertTrue(verify_text.contains("Profile") & verify_text.contains("Assignments")); 	
-
+		
+		//Verify language change en to sv
+		Functions.verifyLang_en2sv();
+		
+		//Verify language change sv to en
+		Functions.verifyLang_sv2en();				
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -52,10 +58,13 @@ public class Consultant_En_AccessTest {
 		System.out.println(verify_text);
 		assertTrue(verify_text.contains("Profil") & verify_text.contains("Uppgifter")); 
 
+		
+		
+
+		
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
-		// Functions.driver.findElement(By.id("profileMenu")).click();
-		// Functions.driver.findElement(By.id("navSignout")).click();
 	}
 
 	@AfterClass
