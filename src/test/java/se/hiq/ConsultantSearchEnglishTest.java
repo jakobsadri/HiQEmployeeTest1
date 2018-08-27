@@ -8,8 +8,11 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class Consultant_En_SearchTest {
+public class ConsultantSearchEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -18,8 +21,8 @@ public class Consultant_En_SearchTest {
 
 	@Test
 	// Test#003, check Generate CV
-	public void Test_008_1() throws InterruptedException {
-		System.out.println("--------------------- Test#005 ---------------------");
+	public void test_008_1() throws InterruptedException {
+		LOGGER.info("--------------------- Test#005 ---------------------");
 		// login
 		Functions.loginAsConsultant_en();
 
@@ -38,7 +41,7 @@ public class Consultant_En_SearchTest {
 		
 		//Verify search result by searching "Java"
 		String searchResult = Functions.driver.findElement(By.xpath("//div[@class='d-flex flex-row  align-items-baseline flex-wrap justify-content-center']")).getText();
-		System.out.println(searchResult);
+		LOGGER.info(searchResult);
 		assertTrue(searchResult.contains("Java")); 	
 
 

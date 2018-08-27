@@ -49,7 +49,7 @@ public class ConsultantAccessEnglishTest {
 	}
 
 	@Test
-	public void Test_001_2() throws InterruptedException {
+	public void test_001_2() throws InterruptedException {
 		LOGGER.info("-------------------- [Change Language]---------------------");
 
 		// login
@@ -59,7 +59,7 @@ public class ConsultantAccessEnglishTest {
 		Functions.verifyLang_en2sv("profile");
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en();
+		Functions.verifyLang_sv2en("profile");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

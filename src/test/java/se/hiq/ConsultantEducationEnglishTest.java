@@ -1,6 +1,8 @@
 package se.hiq;
 
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,7 +16,10 @@ import org.openqa.selenium.WebElement;
  * Verify them.
  *=======================================================================================================
  */
-public class Consultant_En_EducationTest {
+public class ConsultantEducationEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
+
+	
 	String[] profileId = { "", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -30,7 +35,7 @@ public class Consultant_En_EducationTest {
 
 	@Test
 	// Test#002.4, check Profile ->> Personal info
-	public void Profile_005_1() throws InterruptedException {
+	public void test_005_1() throws InterruptedException {
 		System.out.println("--------------------- Test#002.4 [Profile -> Education] ---------------------");
 
 		// --------------------------------------------------

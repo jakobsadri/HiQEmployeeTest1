@@ -190,8 +190,9 @@ public class Functions {
 			assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter")); 	
 	}
 	
-	static void verifyLang_sv2en() {
+	static void verifyLang_sv2en(String pageEnglish) {
 		//Change language from Sv to En
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "/1']";
 			driver.findElement(By.id("consultantMenu")).click();
 			driver.findElement(By.xpath("//a[@href='/en/profile/1']")).click();
 			String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();

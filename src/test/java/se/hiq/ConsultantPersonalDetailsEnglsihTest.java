@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.gargoylesoftware.htmlunit.Page;
 
@@ -17,7 +19,9 @@ import com.gargoylesoftware.htmlunit.Page;
  *  write new profile info. After verifying the written info, restore the current profile info.
  *=======================================================================================================
  */
-public class Consultant_En_PersonalDetailsTest {
+public class ConsultantPersonalDetailsEnglsihTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
+
 	String[] profileId = { "aboutMe", "firstName", "middleNames", "lastName", "dateOfBirth", "email", "phoneNumber" };
 	int profileArraySize = profileId.length;
 	String[] profileCurrentName = { "Jag är en super superutvecklare", "Adam", "Nils", "Larsson", "1970-01-01",
@@ -33,8 +37,8 @@ public class Consultant_En_PersonalDetailsTest {
 
 	@Test
 	// Test#002.1, check Profile ->> Personal info
-	public void Profile_002_1() throws InterruptedException {
-		System.out.println("--------------------- Test#002.1 [Profile -> Personal details]---------------------");
+	public void test_002_1() throws InterruptedException {
+		LOGGER.info("--------------------- Test#002.1 [Profile -> Personal details]---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -108,7 +112,7 @@ public class Consultant_En_PersonalDetailsTest {
 			String profileBoxInfo = Functions.driver.findElement(By.id(profileId[i])).getAttribute("value");
 			assertEquals("bypass", Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"),
 					profileTestName[i]);
-			System.out.println(profileBoxInfo + "  =  " + profileTestName[i]);
+			LOGGER.info(profileBoxInfo + "  =  " + profileTestName[i]);
 		}
 
 		// click on Sign out

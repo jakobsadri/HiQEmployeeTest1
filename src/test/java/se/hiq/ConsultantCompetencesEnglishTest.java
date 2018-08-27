@@ -1,6 +1,8 @@
 package se.hiq;
 
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,7 +14,9 @@ import org.openqa.selenium.WebElement;
  * This test verify consultant profile -> Competences.... TBD
  *=======================================================================================================
  */
-public class Consultant_En_CompetencesTest {
+public class ConsultantCompetencesEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerAccessEnglishTest.class);
+
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -28,8 +32,8 @@ public class Consultant_En_CompetencesTest {
 
 	@Test
 	// Test#002.3, check Profile ->> Competences
-	public void Profile_004_1() throws InterruptedException {
-		System.out.println("--------------------- Test#002.3 [Profile -> SKILLS] ---------------------");
+	public void test_004_1() throws InterruptedException {
+		LOGGER.info("--------------------- Test#002.3 [Profile -> SKILLS] ---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info

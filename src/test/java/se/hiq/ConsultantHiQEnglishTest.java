@@ -1,6 +1,8 @@
 package se.hiq;
 
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,7 +18,10 @@ import org.openqa.selenium.WebElement;
  *  write new profile info. After verifying the written info, restore the current profile info.
  *=======================================================================================================
  */
-public class Consultant_En_HiQTest {
+public class ConsultantHiQEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
+
+	
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
 	int profileArraySize = profileId.length;
@@ -35,8 +40,8 @@ public class Consultant_En_HiQTest {
 
 	@Test
 	// Test#002.2, check Profile ->> Personal info
-	public void Profile_003_1() throws InterruptedException {
-		System.out.println("--------------------- Test#002.2 [Profile -> HIQ] ---------------------");
+	public void test_003_1() throws InterruptedException {
+		LOGGER.info("--------------------- Test#002.2 [Profile -> HIQ] ---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -97,7 +102,7 @@ public class Consultant_En_HiQTest {
 		  for (int i = 0; i <= profileArraySize - 1; i++) { 
 			  	String profileBoxInfo = Functions.driver.findElement(By.id(profileId[i])).getAttribute("value");
 			  	assertEquals("bypass",Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"), profileTestName1[i]); 
-			  	System.out.println(profileBoxInfo + "  =  "+ profileTestName1[i]);
+			  	LOGGER.info(profileBoxInfo + "  =  "+ profileTestName1[i]);
 			}
 		 
 		 // click on Sign out 

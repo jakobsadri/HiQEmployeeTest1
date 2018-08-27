@@ -4,8 +4,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class Consultant_En_AssignmentsTest {
+public class ConsultantAssignmentsEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerAccessEnglishTest.class);
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -14,8 +17,8 @@ public class Consultant_En_AssignmentsTest {
 
 	@Test
 	// Test#004, check Assignment
-	public void Test_006_1() throws InterruptedException {
-		System.out.println("--------------------- Test#004 ---------------------");
+	public void test_006_1() throws InterruptedException {
+		LOGGER.info("--------------------- Test#004 ---------------------");
 		// login
 		Functions.loginAsConsultant_en();
 
