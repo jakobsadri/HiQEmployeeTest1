@@ -18,7 +18,7 @@ public class Consultant_En_SearchTest {
 
 	@Test
 	// Test#003, check Generate CV
-	public void Test_005() throws InterruptedException {
+	public void Test_008_1() throws InterruptedException {
 		System.out.println("--------------------- Test#005 ---------------------");
 		// login
 		Functions.loginAsConsultant_en();
@@ -42,8 +42,6 @@ public class Consultant_En_SearchTest {
 		assertTrue(searchResult.contains("Java")); 	
 
 
-		
-		
 		
 
 		// click on Sign out

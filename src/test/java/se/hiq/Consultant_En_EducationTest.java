@@ -30,7 +30,7 @@ public class Consultant_En_EducationTest {
 
 	@Test
 	// Test#002.4, check Profile ->> Personal info
-	public void Profile_002_4_Test() throws InterruptedException {
+	public void Profile_005_1() throws InterruptedException {
 		System.out.println("--------------------- Test#002.4 [Profile -> Education] ---------------------");
 
 		// --------------------------------------------------
@@ -64,6 +64,11 @@ public class Consultant_En_EducationTest {
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
+		
+		
+		
+		
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -72,7 +77,7 @@ public class Consultant_En_EducationTest {
 		// --------------------------------------------------
 
 		/*
-		 * // login Functions.loginAsConsultant();
+		 * // login Functions.loginAsConsultant_en();
 		 * 
 		 * // Go to My Profile
 		 * Functions.driver.findElement(By.id("navProfile")).click();
@@ -92,6 +97,18 @@ public class Consultant_En_EducationTest {
 		// Restore the current profile info
 		// --------------------------------------------------
 
+		// login 
+		
+		Functions.loginAsConsultant_en();
+		
+		// Go to My Profile
+		Functions.driver.findElement(By.id("navProfile")).click();
+		Functions.driver.findElement(By.id("ngb-tab-3")).click();
+
+		
+			
+		// click on Sign out
+		Functions.signOutAsConsultant();
 		
 	}
 

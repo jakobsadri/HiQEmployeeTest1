@@ -33,7 +33,7 @@ public class Consultant_En_PersonalDetailsTest {
 
 	@Test
 	// Test#002.1, check Profile ->> Personal info
-	public void Profile_002_1_Test() throws InterruptedException {
+	public void Profile_002_1() throws InterruptedException {
 		System.out.println("--------------------- Test#002.1 [Profile -> Personal details]---------------------");
 
 		// --------------------------------------------------
@@ -140,6 +140,9 @@ public class Consultant_En_PersonalDetailsTest {
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
+		
+		
+			
 		// click on Sign out
 		Functions.signOutAsConsultant();
 

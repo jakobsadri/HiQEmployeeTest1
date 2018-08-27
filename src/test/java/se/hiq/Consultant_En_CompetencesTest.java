@@ -28,7 +28,7 @@ public class Consultant_En_CompetencesTest {
 
 	@Test
 	// Test#002.3, check Profile ->> Competences
-	public void Profile_002_3_Test() throws InterruptedException {
+	public void Profile_004_1() throws InterruptedException {
 		System.out.println("--------------------- Test#002.3 [Profile -> SKILLS] ---------------------");
 
 		// --------------------------------------------------
@@ -53,7 +53,9 @@ public class Consultant_En_CompetencesTest {
 		// --------------------------------------------------
 		// Restore the current profile info
 		// --------------------------------------------------
-
+		
+		
+	
 		// click on Sign out
 		Functions.signOutAsConsultant();
 		

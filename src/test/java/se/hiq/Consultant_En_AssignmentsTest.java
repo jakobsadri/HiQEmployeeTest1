@@ -14,7 +14,7 @@ public class Consultant_En_AssignmentsTest {
 
 	@Test
 	// Test#004, check Assignment
-	public void Test_004() throws InterruptedException {
+	public void Test_006_1() throws InterruptedException {
 		System.out.println("--------------------- Test#004 ---------------------");
 		// login
 		Functions.loginAsConsultant_en();
@@ -22,10 +22,8 @@ public class Consultant_En_AssignmentsTest {
 		// Go to My Assigment
 		Functions.driver.findElement(By.id("navProfile")).click();
 		Functions.driver.findElement(By.id("navAssignments")).click();
+	
 		
-		
-		//Functions.driver.findElement(By.xpath("//button[@class='dropdown-item color-hiq-yellow'][2]")).click();
-
 		// click on Sign out
 		Functions.signOutAsConsultant();
 	}

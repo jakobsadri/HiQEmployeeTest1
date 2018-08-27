@@ -14,7 +14,7 @@ public class Consultant_En_CVTest {
 
 	@Test
 	// Test#003, check Import profile
-	public void Test_007() throws InterruptedException {
+	public void Test_007_1() throws InterruptedException {
 		System.out.println("--------------------- Test#007 ---------------------");
 		// login
 		Functions.loginAsConsultant_en();
@@ -23,6 +23,10 @@ public class Consultant_En_CVTest {
 		Functions.driver.findElement(By.id("navProfile")).click();
 		Functions.driver.findElement(By.id("navCv")).click();
 
+		
+		
+	
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 	}

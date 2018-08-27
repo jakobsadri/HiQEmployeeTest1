@@ -1,12 +1,12 @@
 package se.hiq;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+
 
 /*=========================================================================================================
  * This test verify access to URL.
@@ -22,7 +22,7 @@ public class Consultant_En_AccessTest {
 	@Test
 	// Test#001, test URL En and login check
 	public void Test_001_1() throws InterruptedException {
-		System.out.println("--------------------- Test#001_1 [Access to URL En]---------------------");
+		System.out.println("--------------------- [Access to URL En]---------------------");
 
 		// login
 		Functions.loginAsConsultant_en();
@@ -32,6 +32,7 @@ public class Consultant_En_AccessTest {
 		String verify_text = Functions.driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		System.out.println(verify_text);
 		assertTrue(verify_text.contains("Profile") & verify_text.contains("Assignments")); 	
+
 		
 		//Verify language change en to sv
 		Functions.verifyLang_en2sv();
@@ -58,10 +59,6 @@ public class Consultant_En_AccessTest {
 		System.out.println(verify_text);
 		assertTrue(verify_text.contains("Profil") & verify_text.contains("Uppgifter")); 
 
-		
-		
-
-		
 		
 		// click on Sign out
 		Functions.signOutAsConsultant();

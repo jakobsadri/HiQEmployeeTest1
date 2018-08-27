@@ -35,7 +35,7 @@ public class Consultant_En_HiQTest {
 
 	@Test
 	// Test#002.2, check Profile ->> Personal info
-	public void Profile_002_2_Test() throws InterruptedException {
+	public void Profile_003_1() throws InterruptedException {
 		System.out.println("--------------------- Test#002.2 [Profile -> HIQ] ---------------------");
 
 		// --------------------------------------------------
@@ -142,6 +142,8 @@ public class Consultant_En_HiQTest {
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
+		
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 	}
