@@ -3,6 +3,8 @@ package se.hiq;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*=========================================================================================================
  * This test verify access to URL and login as manager
@@ -11,7 +13,9 @@ import org.junit.Test;
  * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
  *=========================================================================================================
  */
-public class Manager_En_AccessTest {
+public class ManagerAccessEnglishTest {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerAccessEnglishTest.class);
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -20,8 +24,10 @@ public class Manager_En_AccessTest {
 
 	@Test
 	// Test#001, test URL En and login check
-	public void Test_101_1() throws InterruptedException {
-		System.out.println("--------------------- [Access to URL Manager En]---------------------");
+	public void test_101_1() throws InterruptedException {
+		LOGGER.info("--------------------- [Access to URL Manager En]---------------------");
+		
+		
 
 		// login
 		Functions.loginAsManager_en();
@@ -34,8 +40,8 @@ public class Manager_En_AccessTest {
 	// Test URL-Sv
 	@Test
 	// Test#001, test URL Sv and login check
-	public void Test_101_2() throws InterruptedException {
-		System.out.println("--------------------- [Access to URL Manager Sv]---------------------");
+	public void test_101_2() throws InterruptedException {
+		LOGGER.info("--------------------- [Access to URL Manager Sv]---------------------");
 
 		// login
 		Functions.loginAsManager_sv();

@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*=========================================================================================================
  * This test verify search function in manager-interface
@@ -17,7 +19,8 @@ import org.openqa.selenium.WebElement;
  *=========================================================================================================
  */
 
-public class Manager_En_SearchTest {
+public class ManagerSearchEnglishTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerSearchEnglishTest.class);
 
 	@BeforeClass
 	public static void setupDriver() {
@@ -27,7 +30,7 @@ public class Manager_En_SearchTest {
 	@Test
 	// Test#003, check Generate CV
 	public void Test_102_1() throws InterruptedException {
-		System.out.println("--------------------- [Test Search function Manager En] ---------------------");
+		LOGGER.info("--------------------- [Test Search function Manager En] ---------------------");
 
 		// login
 		Functions.loginAsManager_en();
@@ -47,7 +50,7 @@ public class Manager_En_SearchTest {
 				.findElement(By.xpath(
 						"//div[@class='d-flex flex-row  align-items-baseline flex-wrap justify-content-center']"))
 				.getText();
-		System.out.println(searchResult);
+		LOGGER.info(searchResult);
 		assertTrue(searchResult.contains("Java"));
 
 		// click on Sign out

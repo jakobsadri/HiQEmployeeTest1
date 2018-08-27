@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 
@@ -15,6 +17,8 @@ import com.seleniumsimplified.webdriver.manager.Driver;
  *=======================================================================================================
  */
 public class Functions {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(Functions.class);
 
 	// -------------------------------------------------
 	// Login info
@@ -174,13 +178,18 @@ public class Functions {
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
 	
-	static void verifyLang_en2sv() {
+	static void verifyLang_en2sv(String pageSwedish) {
+		//LOGGER.info("------------" + pageSwedish);
+		pageSwedish = "//a[@href='/sv/" + pageSwedish + "/1']";
+		LOGGER.info("------------" + pageSwedish);
 	//Change language from En to Sv
 			driver.findElement(By.id("consultantMenu")).click();
-			driver.findElement(By.xpath("//a[@href='/sv/profile/1']")).click();
+			driver.findElement(By.xpath(pageSwedish)).click();
+			//driver.findElement(By.xpath("//a[@href='/sv/profile/1']")).click();
 			String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 			assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter")); 	
 	}
+	
 	static void verifyLang_sv2en() {
 		//Change language from Sv to En
 			driver.findElement(By.id("consultantMenu")).click();
