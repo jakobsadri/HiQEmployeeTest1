@@ -44,8 +44,27 @@ public class ConsultantSearchEnglishTest {
 		LOGGER.info(searchResult);
 		assertTrue(searchResult.contains("Java")); 	
 
+		// click on Sign out
+		Functions.signOutAsConsultant();
+	}
+	@Test
+	public void test_008_2() throws InterruptedException {
+		LOGGER.info("-------------------- [Change Language]---------------------");
 
+		// login
+		Functions.loginAsConsultant_en();
 		
+		// Go to My Search
+		Functions.driver.findElement(By.id("consultantMenu")).click();
+		Functions.driver.findElement(By.id("navSearch")).click();
+
+		// Verify language change en to sv
+		Functions.verifyLang_en2sv("search");
+		
+		Thread.sleep(500);
+
+		// Verify language change sv to en
+		Functions.verifyLang_sv2en("search");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

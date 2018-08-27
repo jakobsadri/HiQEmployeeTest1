@@ -23,14 +23,33 @@ public class ConsultantAssignmentsEnglishTest {
 		Functions.loginAsConsultant_en();
 
 		// Go to My Assigment
-		Functions.driver.findElement(By.id("navProfile")).click();
 		Functions.driver.findElement(By.id("navAssignments")).click();
 	
 		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 	}
+	
+	@Test
+	public void test_006_2() throws InterruptedException {
+		LOGGER.info("-------------------- [Change Language]---------------------");
 
+		// login
+		Functions.loginAsConsultant_en();
+		
+		// Go to My Assigment
+		Functions.driver.findElement(By.id("navAssignments")).click();
+		
+		// Verify language change en to sv
+		Functions.verifyLang_en2sv("assignments");
+
+		// Verify language change sv to en
+		Functions.verifyLang_sv2en("assignments");
+
+		// click on Sign out
+		Functions.signOutAsConsultant();
+	}
+	
 	@AfterClass
 	public static void afterTest() {
 		// Driver.quit();

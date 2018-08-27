@@ -25,14 +25,14 @@ public class Functions {
 	// -------------------------------------------------
 
 	static WebDriver driver = Driver.get();
-	public static String Hiq_url_en = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/en/login";
-	public static String Hiq_url_sv = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/sv/login";
-	public static String Hiq_un_consultant = "testconsultant";
+	public static String hiq_url_en = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/en/login";
+	public static String hiq_url_sv = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/sv/login";
+	public static String hiq_un_consultant = "testconsultant";
 	public static String Hiq_pw_consultant = "password";
-	public static String Hiq_un_manager = "testmanager";
-	public static String Hiq_pw_manager = "password";
-	public static String Hiq_un_admin = "admin";
-	public static String Hiq_pw_admin = "admin";
+	public static String hiq_un_manager = "testmanager";
+	public static String hiq_pw_manager = "password";
+	public static String hiq_un_admin = "admin";
+	public static String hiq_pw_admin = "admin";
 
 	// -------------------------------------------------
 	// Login as consultant En
@@ -40,13 +40,13 @@ public class Functions {
 	static void loginAsConsultant_en() throws InterruptedException {
 
 		// open URL
-		driver.get(Hiq_url_en);
+		driver.get(hiq_url_en);
 		Thread.sleep(50);
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
 		WebElement nameBox1 = driver.findElement(By.name("username"));
-		nameBox1.sendKeys(Hiq_un_consultant);
+		nameBox1.sendKeys(hiq_un_consultant);
 		WebElement nameBox2 = driver.findElement(By.name("password"));
 		nameBox2.sendKeys(Hiq_pw_consultant);
 
@@ -58,46 +58,21 @@ public class Functions {
 	}
 
 	// -------------------------------------------------
-		// Login as consultant Sv
-		// -------------------------------------------------
-		static void loginAsConsultant_sv() throws InterruptedException {
-
-			// open URL
-			
-			driver.get(Hiq_url_sv);
-			Thread.sleep(50);
-			assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
-
-			// Write username and password
-			WebElement nameBox1 = driver.findElement(By.name("username"));
-			nameBox1.sendKeys(Hiq_un_consultant);
-			WebElement nameBox2 = driver.findElement(By.name("password"));
-			nameBox2.sendKeys(Hiq_pw_consultant);
-
-			// click on login
-			driver.findElement(By.id("login")).click();
-
-			// Check if login succsess by checking Dashboard title name
-			assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
-		}
-
-		
+	// Login as consultant Sv
 	// -------------------------------------------------
-	// Login as manager En
-	// -------------------------------------------------
-	static void loginAsManager_en() throws InterruptedException {
+	static void loginAsConsultant_sv() throws InterruptedException {
 
 		// open URL
-		driver.get(Hiq_url_en);
+
+		driver.get(hiq_url_sv);
 		Thread.sleep(50);
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
-		
 		// Write username and password
 		WebElement nameBox1 = driver.findElement(By.name("username"));
-		nameBox1.sendKeys(Hiq_un_manager);
+		nameBox1.sendKeys(hiq_un_consultant);
 		WebElement nameBox2 = driver.findElement(By.name("password"));
-		nameBox2.sendKeys(Hiq_pw_manager);
+		nameBox2.sendKeys(Hiq_pw_consultant);
 
 		// click on login
 		driver.findElement(By.id("login")).click();
@@ -105,30 +80,52 @@ public class Functions {
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
-	
+
 	// -------------------------------------------------
-		// Login as manager Sv
-		// -------------------------------------------------
-		static void loginAsManager_sv() throws InterruptedException {
+	// Login as manager En
+	// -------------------------------------------------
+	static void loginAsManager_en() throws InterruptedException {
 
-			// open URL
-			driver.get(Hiq_url_sv);
-			Thread.sleep(50);
-			assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
+		// open URL
+		driver.get(hiq_url_en);
+		Thread.sleep(50);
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
-			
-			// Write username and password
-			WebElement nameBox1 = driver.findElement(By.name("username"));
-			nameBox1.sendKeys(Hiq_un_manager);
-			WebElement nameBox2 = driver.findElement(By.name("password"));
-			nameBox2.sendKeys(Hiq_pw_manager);
+		// Write username and password
+		WebElement nameBox1 = driver.findElement(By.name("username"));
+		nameBox1.sendKeys(hiq_un_manager);
+		WebElement nameBox2 = driver.findElement(By.name("password"));
+		nameBox2.sendKeys(hiq_pw_manager);
 
-			// click on login
-			driver.findElement(By.id("login")).click();
+		// click on login
+		driver.findElement(By.id("login")).click();
 
-			// Check if login succsess by checking Dashboard title name
-			assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
-		}
+		// Check if login succsess by checking Dashboard title name
+		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+	}
+
+	// -------------------------------------------------
+	// Login as manager Sv
+	// -------------------------------------------------
+	static void loginAsManager_sv() throws InterruptedException {
+
+		// open URL
+		driver.get(hiq_url_sv);
+		Thread.sleep(50);
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
+
+		// Write username and password
+		WebElement nameBox1 = driver.findElement(By.name("username"));
+		nameBox1.sendKeys(hiq_un_manager);
+		WebElement nameBox2 = driver.findElement(By.name("password"));
+		nameBox2.sendKeys(hiq_pw_manager);
+
+		// click on login
+		driver.findElement(By.id("login")).click();
+
+		// Check if login succsess by checking Dashboard title name
+		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+	}
 
 	// -------------------------------------------------
 	// Login as admin
@@ -136,15 +133,15 @@ public class Functions {
 	static void loginAsAdmin() throws InterruptedException {
 
 		// open URL
-		driver.get(Hiq_url_en);
+		driver.get(hiq_url_en);
 		Thread.sleep(50);
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
-		
+
 		// Write username and password
 		WebElement nameBox1 = driver.findElement(By.name("username"));
-		nameBox1.sendKeys(Hiq_un_admin);
+		nameBox1.sendKeys(hiq_un_admin);
 		WebElement nameBox2 = driver.findElement(By.name("password"));
-		nameBox2.sendKeys(Hiq_pw_admin);
+		nameBox2.sendKeys(hiq_pw_admin);
 
 		// click on login
 		driver.findElement(By.id("login")).click();
@@ -161,11 +158,11 @@ public class Functions {
 		// click on Sign out
 		driver.findElement(By.id("consultantMenu")).click();
 		driver.findElement(By.id("navSignout")).click();
-		
+
 		// verify
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
-		
+
 	// -------------------------------------------------
 	// Sign out as Manager
 	// -------------------------------------------------
@@ -177,25 +174,30 @@ public class Functions {
 		// verify
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
-	
 	static void verifyLang_en2sv(String pageSwedish) {
-		//LOGGER.info("------------" + pageSwedish);
-		pageSwedish = "//a[@href='/sv/" + pageSwedish + "/1']";
-		LOGGER.info("------------" + pageSwedish);
-	//Change language from En to Sv
-			driver.findElement(By.id("consultantMenu")).click();
-			driver.findElement(By.xpath(pageSwedish)).click();
-			//driver.findElement(By.xpath("//a[@href='/sv/profile/1']")).click();
-			String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-			assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter")); 	
+		LOGGER.info(pageSwedish);
+		if (pageSwedish.equals("search")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
+			LOGGER.info(pageSwedish);
+		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/1']";
+		}
+		// Change language from En to Sv
+		driver.findElement(By.id("consultantMenu")).click();
+		driver.findElement(By.xpath(pageSwedish)).click();
+		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter"));
 	}
-	
 	static void verifyLang_sv2en(String pageEnglish) {
-		//Change language from Sv to En
+		if (pageEnglish.equals("search")) {
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
+		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "/1']";
-			driver.findElement(By.id("consultantMenu")).click();
-			driver.findElement(By.xpath("//a[@href='/en/profile/1']")).click();
-			String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-			assertTrue(verify_lang_en.contains("Profile") & verify_lang_en.contains("Assignments")); 
+		}
+		// Change language from Sv to En
+		driver.findElement(By.id("consultantMenu")).click();
+		driver.findElement(By.xpath(pageEnglish)).click();
+		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		assertTrue(verify_lang_en.contains("Profile") & verify_lang_en.contains("Assignments"));
 	}
 }

@@ -9,7 +9,33 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
+/*=========================================================================================================
+ * test_005_1: verify consultant profile -> Education. TBD
+ * 1.  Login as consultant and verify start page. Start page should contains words "profile" and "Assignments".
+ * 2.  Clean some profile-fields and add/choose new profile information.
+ * 3.  Save the information
+ * 4.  Signout from the page
+ * 5.  Login to the HiQEmployee page as consultant
+ * 6.  Verify added information are correct.
+ * 7.  Signout from the page
+ * 8.  Login to the HiQEmployee page as consultant
+ * 9.  Remove added information
+ * 10. Save the information
+ * 11. Signout from the page
+ * 12. Login to the HiQEmployee page as consultant
+ * 13. Verify the information is removed successfully
+ * 14. Signout from the page
+ * 15. Login to the HiQEmployee page as consultant
+ * 16. Restore current profile information.
+ * 17. Save the information
+ * 18. Signout from the page
+ * 
+ * test_005_2: Verify language changes
+ * 1. Login as consultant and verify start page.
+ * 2. Change language from English to Swedish and vice versa.
+ * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
+ *=========================================================================================================
+ */
 /*=========================================================================================================
  * This test verify consultant profile -> Education. The test case add new education, course and certificate. 
  * Verify them. The test case verify delete-buttons by removing added education, course and certificate.
@@ -115,6 +141,25 @@ public class ConsultantEducationEnglishTest {
 		// click on Sign out
 		Functions.signOutAsConsultant();
 		
+	}
+	@Test
+	public void test_005_2() throws InterruptedException {
+		LOGGER.info("-------------------- [Change Language]---------------------");
+
+		// login
+		Functions.loginAsConsultant_en();
+		
+		// Go to Profile -> Education
+		Functions.driver.findElement(By.id("ngb-tab-3")).click();
+
+		// Verify language change en to sv
+		Functions.verifyLang_en2sv("profile");
+
+		// Verify language change sv to en
+		Functions.verifyLang_sv2en("profile");
+
+		// click on Sign out
+		Functions.signOutAsConsultant();
 	}
 
 	@AfterClass
