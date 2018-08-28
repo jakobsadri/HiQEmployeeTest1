@@ -10,12 +10,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /*=========================================================================================================
- * test_001_1: Verify access to URL and login as consultant
+ * test_001_1: Verify access to URL and login as consultant English
  * 1. Open the URL:"http://hiqemployee.northeurope.cloudapp.azure.com:8888/en/login" 
  * 2. Login as consultant and verify start page. Start page should contains words "profile" and "Assignments".
  * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
  * 
- * test_001_2: Verify language changes
+ * test_001_2: Verify access to URL and login as consultant Swedish
+ * 1. Open the URL:"http://hiqemployee.northeurope.cloudapp.azure.com:8888/sv/login" 
+ * 2. Login as consultant and verify start page. Start page should contains words "profil" and "Uppgifter".
+ * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
+ * 
+ * test_001_3: Verify language changes
  * 1. Login as consultant and verify start page.
  * 2. Change language from English to Swedish and vice versa.
  * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
@@ -24,7 +29,7 @@ import org.slf4j.LoggerFactory;
 public class ConsultantAccessEnglishTest {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
-			
+
 	@BeforeClass
 	public static void setupDriver() {
 
@@ -32,7 +37,7 @@ public class ConsultantAccessEnglishTest {
 
 	@Test
 	public void test_001_1() throws InterruptedException {
-		LOGGER.info("--------------------- [Access to URL Consultant]---------------------");
+		LOGGER.info("--------------------- [Access to Consultant URL English]---------------------");
 
 		// login
 		Functions.loginAsConsultant_en();
@@ -45,11 +50,27 @@ public class ConsultantAccessEnglishTest {
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
-
 	}
 
 	@Test
 	public void test_001_2() throws InterruptedException {
+		LOGGER.info("--------------------- [Access to Consultant URL Swedish]---------------------");
+
+		// login
+		Functions.loginAsConsultant_sv();
+
+		// Verify consultant start-page
+		String verify_text = Functions.driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']"))
+				.getText();
+		LOGGER.info(verify_text);
+		assertTrue(verify_text.contains("Profil") & verify_text.contains("Uppgifter"));
+
+		// click on Sign out
+		Functions.signOutAsConsultant();
+	}
+
+	@Test
+	public void test_001_3() throws InterruptedException {
 		LOGGER.info("-------------------- [Change Language]---------------------");
 
 		// login

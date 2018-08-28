@@ -13,7 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /*=========================================================================================================
- * test_003_1: verify consultant profile -> HIQ.
+ * test_003_1: verify consultant profile -> HIQ Consultant Engilsh.
  * 1. Login as consultant and verify start page. Start page should contains words "profile" and "Assignments".
  * 2. Clean some profile-fields and add/choose new profile information.
  * 3. Save the information
@@ -24,9 +24,22 @@ import org.openqa.selenium.WebElement;
  * 8. Login to the HiQEmployee page as consultant
  * 9. Restore current profile information.
  * 10. Save the information
- * 11.Signout from the page
+ * 11. Signout from the page
  * 
- * test_003_2: Verify language changes
+ * test_003_2: verify consultant profile -> HIQ Consultant Swedish.
+ * 1. Login as consultant and verify start page. Start page should contains words "profil" and "Uppgifter".
+ * 2. Clean some profile-fields and add/choose new profile information.
+ * 3. Save the information
+ * 4. Signout from the page
+ * 5. Login to the HiQEmployee page as consultant
+ * 6. Verify added/chosen profile information are correct.
+ * 7. Signout from the page
+ * 8. Login to the HiQEmployee page as consultant
+ * 9. Restore current profile information.
+ * 10. Save the information
+ * 11. Signout from the page
+ * 
+ * test_003_3: Verify language changes
  * 1. Login as consultant and verify start page.
  * 2. Change language from English to Swedish and vice versa.
  * 3. Signout from the page and verify signout by checking HiQEmployee login-pages's title "HIQ Employees".
@@ -34,7 +47,7 @@ import org.openqa.selenium.WebElement;
  */
 
 public class ConsultantHiQEnglishTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantHiQEnglishTest.class);
 
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
@@ -52,9 +65,8 @@ public class ConsultantHiQEnglishTest {
 	}
 
 	@Test
-	// Test#002.2, check Profile ->> Personal info
 	public void test_003_1() throws InterruptedException {
-		LOGGER.info("---------------------[Profile -> HIQ] ---------------------");
+		LOGGER.info("---------------------[Profile -> HIQ Consultant English] ---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -63,8 +75,7 @@ public class ConsultantHiQEnglishTest {
 		// login
 		Functions.loginAsConsultant_en();
 
-		// Go to My Profile
-		Functions.driver.findElement(By.id("navProfile")).click();
+		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 
 		// Click on Consultant info, update info and save
@@ -92,7 +103,7 @@ public class ConsultantHiQEnglishTest {
 
 		// Wait until the save-message is disappears
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(6000);
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
@@ -106,8 +117,7 @@ public class ConsultantHiQEnglishTest {
 		// login
 		Functions.loginAsConsultant_en();
 
-		// Go to My Profile
-		Functions.driver.findElement(By.id("navProfile")).click();
+		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 
 		// Click on Consultant info, update info and save
@@ -128,8 +138,7 @@ public class ConsultantHiQEnglishTest {
 		// login
 		Functions.loginAsConsultant_en();
 
-		// Go to My Profile
-		Functions.driver.findElement(By.id("navProfile")).click();
+		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 
 		// Restore current names
@@ -156,7 +165,117 @@ public class ConsultantHiQEnglishTest {
 
 		// Wait until the save-message is disappears
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(6000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+
+		// click on Sign out
+		Functions.signOutAsConsultant();
+	}
+	
+	@Test
+	public void test_003_2() throws InterruptedException {
+		LOGGER.info("---------------------[Profile -> HIQ Consultant Swedish] ---------------------");
+
+		// --------------------------------------------------
+		// Add new profile info
+		// --------------------------------------------------
+
+		// login
+		Functions.loginAsConsultant_sv();
+
+		// Go to Profile ->HiQ
+		Functions.driver.findElement(By.id("ngb-tab-1")).click();
+
+		// Click on Consultant info, update info and save
+
+		for (int i = 0; i <= profileArraySize - 1; i++) {
+			if (i == 0) {
+				Functions.driver.findElement(By.id(profileId[i])).click();
+				Select Profileoption = new Select(Functions.driver.findElement(By.id(profileId[i])));
+				Profileoption.selectByVisibleText(profileTestName[i]);
+
+			} else if (i == 2) {
+				Functions.driver.findElement(By.id(profileId[i])).click();
+				Select Profileoption = new Select(Functions.driver.findElement(By.id(profileId[i])));
+				Profileoption.selectByVisibleText(profileTestName[i]);
+
+			} else {
+				WebElement profileBox1 = Functions.driver.findElement(By.id(profileId[i]));
+				profileBox1.clear();
+				profileBox1.sendKeys(profileTestName[i]);
+			}
+		}
+
+		// Save info
+		Functions.driver.findElement(By.id("saveProfile")).click();
+
+		// Wait until the save-message is disappears
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+		// click on Sign out
+		Functions.signOutAsConsultant();
+
+		// --------------------------------------------------
+		// Verify new profile info
+		// --------------------------------------------------
+
+		// login
+		Functions.loginAsConsultant_sv();
+
+		// Go to Profile ->HiQ
+		Functions.driver.findElement(By.id("ngb-tab-1")).click();
+
+		// Click on Consultant info, update info and save
+		for (int i = 0; i <= profileArraySize - 1; i++) {
+			String profileBoxInfo = Functions.driver.findElement(By.id(profileId[i])).getAttribute("value");
+			assertEquals("bypass", Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"),
+					profileTestName1[i]);
+			LOGGER.info(profileBoxInfo + "  =  " + profileTestName1[i]);
+		}
+
+		// click on Sign out
+		Functions.signOutAsConsultant();
+
+		// --------------------------------------------------
+		// Restore the current profile info
+		// --------------------------------------------------
+
+		// login
+		Functions.loginAsConsultant_sv();
+
+		// Go to Profile ->HiQ
+		Functions.driver.findElement(By.id("ngb-tab-1")).click();
+
+		// Restore current names
+		for (int i = 0; i <= profileArraySize - 1; i++) {
+			if (i == 0) {
+				Functions.driver.findElement(By.id(profileId[i])).click();
+				Select Profileoption = new Select(Functions.driver.findElement(By.id(profileId[i])));
+				Profileoption.selectByVisibleText(profileCurrentName[i]);
+
+			} else if (i == 2) {
+				Functions.driver.findElement(By.id(profileId[i])).click();
+				Select Profileoption = new Select(Functions.driver.findElement(By.id(profileId[i])));
+				Profileoption.selectByVisibleText(profileCurrentName[i]);
+
+			} else {
+				WebElement profileBox1 = Functions.driver.findElement(By.id(profileId[i]));
+				profileBox1.clear();
+				profileBox1.sendKeys(profileCurrentName[i]);
+			}
+		}
+
+		// Save info
+		Functions.driver.findElement(By.id("saveProfile")).click();
+
+		// Wait until the save-message is disappears
+		try {
+			Thread.sleep(6000);
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
@@ -166,12 +285,12 @@ public class ConsultantHiQEnglishTest {
 	}
 
 	@Test
-	public void test_003_2() throws InterruptedException {
+	public void test_003_3() throws InterruptedException {
 		LOGGER.info("-------------------- [Change Language]---------------------");
 
 		// login
 		Functions.loginAsConsultant_en();
-		
+
 		// Go to My Profile->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 

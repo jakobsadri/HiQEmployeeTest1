@@ -1,19 +1,17 @@
 package se.hiq;
 
-import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 /*=========================================================================================================
  * test_004_1: verify consultant profile -> Competences. TBD
  * 1. Login as consultant and verify start page. Start page should contains words "profile" and "Assignments".
- * 
- * 11.Signout from the page
+ * 2. TBD....
+ * 3. Signout from the page
  * 
  * test_004_2: Verify language changes
  * 1. Login as consultant and verify start page.
@@ -22,12 +20,8 @@ import org.openqa.selenium.WebElement;
  *=========================================================================================================
  */
 
-/*=========================================================================================================
- * This test verify consultant profile -> Competences.... TBD
- *=======================================================================================================
- */
 public class ConsultantCompetencesEnglishTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerAccessEnglishTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantCompetencesEnglishTest.class);
 
 	String[] profileId = { "consultantGroup", "title", "homeOffice", "startedInBranch", "startedAtCompany",
 			"wantedAssignments" };
@@ -43,9 +37,8 @@ public class ConsultantCompetencesEnglishTest {
 	}
 
 	@Test
-	// Test#002.3, check Profile -> Competences
 	public void test_004_1() throws InterruptedException {
-		LOGGER.info("---------------------[Profile -> SKILLS] ---------------------");
+		LOGGER.info("---------------------[Profile -> Competences] ---------------------");
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -55,34 +48,30 @@ public class ConsultantCompetencesEnglishTest {
 		Functions.loginAsConsultant_en();
 
 		// Go to My Profile
-		Functions.driver.findElement(By.id("navProfile")).click();
 		Functions.driver.findElement(By.id("ngb-tab-2")).click();
 
 		// Click on Consultant info, update info and save
-
 
 		// --------------------------------------------------
 		// Verify new profile info
 		// --------------------------------------------------
 
-		
 		// --------------------------------------------------
 		// Restore the current profile info
 		// --------------------------------------------------
-		
-		
-	
+
 		// click on Sign out
 		Functions.signOutAsConsultant();
-		
+
 	}
+
 	@Test
 	public void test_004_2() throws InterruptedException {
 		LOGGER.info("-------------------- [Change Language]---------------------");
 
 		// login
 		Functions.loginAsConsultant_en();
-		
+
 		// Go to Profile-Competences
 		Functions.driver.findElement(By.id("ngb-tab-2")).click();
 

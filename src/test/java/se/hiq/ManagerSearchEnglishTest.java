@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /*=========================================================================================================
- * This test verify search function in manager-interface
+ * test_102_1: This test verify search function in manager-interface
  * 1. Open the HiQEmlpoyee URL by Login as Manager and verify dash page by checking dash-pages's title "HIQ Employees".
  * 2. Go to search page and search "Java".
  * 3. Verify search result by checking test-user have Java competence.
@@ -28,8 +28,7 @@ public class ManagerSearchEnglishTest {
 	}
 
 	@Test
-	// Test#003, check Generate CV
-	public void Test_102_1() throws InterruptedException {
+	public void test_102_1() throws InterruptedException {
 		LOGGER.info("--------------------- [Test Search function Manager En] ---------------------");
 
 		// login

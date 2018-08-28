@@ -174,12 +174,17 @@ public class Functions {
 		// verify
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
+
+	// -------------------------------------------------
+	// Change language from English to Svenska
+	// -------------------------------------------------
 	static void verifyLang_en2sv(String pageSwedish) {
 		LOGGER.info(pageSwedish);
 		if (pageSwedish.equals("search")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
 			LOGGER.info(pageSwedish);
-		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments")) {
+		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
+				|| pageSwedish.equals("import")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/1']";
 		}
 		// Change language from En to Sv
@@ -188,10 +193,15 @@ public class Functions {
 		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter"));
 	}
+
+	// -------------------------------------------------
+	// Change language from Svenska to English
+	// -------------------------------------------------
 	static void verifyLang_sv2en(String pageEnglish) {
 		if (pageEnglish.equals("search")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
-		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments")) {
+		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
+				|| pageEnglish.equals("import")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "/1']";
 		}
 		// Change language from Sv to En
