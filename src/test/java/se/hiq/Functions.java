@@ -128,12 +128,35 @@ public class Functions {
 	}
 
 	// -------------------------------------------------
-	// Login as admin
+	// Login as admin en
 	// -------------------------------------------------
-	static void loginAsAdmin() throws InterruptedException {
+	static void loginAsAdmin_en() throws InterruptedException {
 
 		// open URL
 		driver.get(hiq_url_en);
+		Thread.sleep(50);
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
+
+		// Write username and password
+		WebElement nameBox1 = driver.findElement(By.name("username"));
+		nameBox1.sendKeys(hiq_un_admin);
+		WebElement nameBox2 = driver.findElement(By.name("password"));
+		nameBox2.sendKeys(hiq_pw_admin);
+
+		// click on login
+		driver.findElement(By.id("login")).click();
+
+		// Check if login succsess by checking Dashboard title name
+		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+	}
+
+	// -------------------------------------------------
+	// Login as admin sv
+	// -------------------------------------------------
+	static void loginAsAdmin_sv() throws InterruptedException {
+
+		// open URL
+		driver.get(hiq_url_sv);
 		Thread.sleep(50);
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
@@ -176,13 +199,22 @@ public class Functions {
 	}
 
 	// -------------------------------------------------
-	// Change language from English to Svenska
+	// Sign out as Admin
 	// -------------------------------------------------
-	static void verifyLang_en2sv(String pageSwedish) {
-		LOGGER.info(pageSwedish);
+	static void signOutAsAdmin() {
+		// click on Sign out
+		driver.findElement(By.id("adminMenu")).click();
+		driver.findElement(By.id("navSignout")).click();
+		// verify
+		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+	}
+
+	// -------------------------------------------------
+	// Change language Consultant from English to Svenska
+	// -------------------------------------------------
+	static void verifyConsultantLanguage_en2sv(String pageSwedish) {
 		if (pageSwedish.equals("search")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
-			LOGGER.info(pageSwedish);
 		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
 				|| pageSwedish.equals("import")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/1']";
@@ -195,9 +227,9 @@ public class Functions {
 	}
 
 	// -------------------------------------------------
-	// Change language from Svenska to English
+	// Change language Consultant from Svenska to English
 	// -------------------------------------------------
-	static void verifyLang_sv2en(String pageEnglish) {
+	static void verifyConsultantLanguage_sv2en(String pageEnglish) {
 		if (pageEnglish.equals("search")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
 		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
@@ -209,5 +241,77 @@ public class Functions {
 		driver.findElement(By.xpath(pageEnglish)).click();
 		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		assertTrue(verify_lang_en.contains("Profile") & verify_lang_en.contains("Assignments"));
+	}
+
+	// -------------------------------------------------
+	// Change language Manager from English to Svenska
+	// -------------------------------------------------
+	static void verifyManagerLanguage_en2sv(String pageSwedish) {
+		if (pageSwedish.equals("search")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
+		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
+				|| pageSwedish.equals("import")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/2']";
+		}
+		// Change language from En to Sv
+		driver.findElement(By.id("managerMenu")).click();
+		driver.findElement(By.xpath(pageSwedish)).click();
+		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		LOGGER.info(verify_lang_sv);
+		assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Konsultgrupp"));
+	}
+
+	// -------------------------------------------------
+	// Change language Manager from Svenska to English
+	// -------------------------------------------------
+	static void verifyManagerLanguage_sv2en(String pageEnglish) {
+		if (pageEnglish.equals("search")) {
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
+		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
+				|| pageEnglish.equals("import")) {
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "/2']";
+		}
+		// Change language from Sv to En
+		driver.findElement(By.id("managerMenu")).click();
+		driver.findElement(By.xpath(pageEnglish)).click();
+		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		LOGGER.info(verify_lang_en);
+		assertTrue(verify_lang_en.contains("Search") & verify_lang_en.contains("Profile"));
+	}
+
+	// -------------------------------------------------
+	// Change language Manager from English to Svenska
+	// -------------------------------------------------
+	static void verifyAdminLanguage_en2sv(String pageSwedish) {
+		if (pageSwedish.equals("dashboard")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
+		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
+				|| pageSwedish.equals("import")) {
+			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/2']";
+		}
+		// Change language from En to Sv
+		driver.findElement(By.id("adminMenu")).click();
+		driver.findElement(By.xpath(pageSwedish)).click();
+		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		LOGGER.info(verify_lang_sv);
+		assertTrue(verify_lang_sv.contains("Dashboard") & verify_lang_sv.contains("Sök"));
+	}
+
+	// -------------------------------------------------
+	// Change language Manager from Svenska to English
+	// -------------------------------------------------
+	static void verifyAdminLanguage_sv2en(String pageEnglish) {
+		if (pageEnglish.equals("dashboard")) {
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
+		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
+				|| pageEnglish.equals("import")) {
+			pageEnglish = "//a[@href='/en/" + pageEnglish + "/2']";
+		}
+		// Change language from Sv to En
+		driver.findElement(By.id("adminMenu")).click();
+		driver.findElement(By.xpath(pageEnglish)).click();
+		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
+		LOGGER.info(verify_lang_en);
+		assertTrue(verify_lang_en.contains("Dashboard") & verify_lang_en.contains("Search"));
 	}
 }

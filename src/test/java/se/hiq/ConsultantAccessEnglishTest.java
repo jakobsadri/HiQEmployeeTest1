@@ -9,6 +9,10 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.manager.Driver.BrowserName;
+import com.seleniumsimplified.webdriver.manager.EnvironmentPropertyReader;
+
 /*=========================================================================================================
  * test_001_1: Verify access to URL and login as consultant English
  * 1. Open the URL:"http://hiqemployee.northeurope.cloudapp.azure.com:8888/en/login" 
@@ -31,8 +35,9 @@ public class ConsultantAccessEnglishTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantAccessEnglishTest.class);
 
 	@BeforeClass
-	public static void setupDriver() {
-
+	public static void beforeTest() {
+		//EnvironmentPropertyReader.getPropertyOrEnv("GOOGLECHROME","FIREFOXMARIONETTE");
+		
 	}
 
 	@Test
@@ -45,7 +50,6 @@ public class ConsultantAccessEnglishTest {
 		// Verify consultant start-page
 		String verify_text = Functions.driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']"))
 				.getText();
-		LOGGER.info(verify_text);
 		assertTrue(verify_text.contains("Profile") & verify_text.contains("Assignments"));
 
 		// click on Sign out
@@ -62,7 +66,6 @@ public class ConsultantAccessEnglishTest {
 		// Verify consultant start-page
 		String verify_text = Functions.driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']"))
 				.getText();
-		LOGGER.info(verify_text);
 		assertTrue(verify_text.contains("Profil") & verify_text.contains("Uppgifter"));
 
 		// click on Sign out
@@ -77,10 +80,10 @@ public class ConsultantAccessEnglishTest {
 		Functions.loginAsConsultant_en();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("profile");
+		Functions.verifyConsultantLanguage_en2sv("profile");
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("profile");
+		Functions.verifyConsultantLanguage_sv2en("profile");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

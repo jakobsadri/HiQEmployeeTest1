@@ -29,7 +29,7 @@ public class ConsultantSearchEnglishTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantSearchEnglishTest.class);
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 
@@ -75,12 +75,12 @@ public class ConsultantSearchEnglishTest {
 		Functions.driver.findElement(By.id("navSearch")).click();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("search");
+		Functions.verifyConsultantLanguage_en2sv("search");
 
 		Thread.sleep(500);
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("search");
+		Functions.verifyConsultantLanguage_sv2en("search");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

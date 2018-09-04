@@ -23,7 +23,7 @@ public class ConsultantCVEnglishTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantCVEnglishTest.class);
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 
@@ -72,10 +72,10 @@ public class ConsultantCVEnglishTest {
 		Functions.driver.findElement(By.id("navCv")).click();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("cv");
+		Functions.verifyConsultantLanguage_en2sv("cv");
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("cv");
+		Functions.verifyConsultantLanguage_sv2en("cv");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

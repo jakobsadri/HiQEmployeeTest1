@@ -4,6 +4,8 @@ C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-emplo
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantEducationEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantPersonalDetailsEnglsihTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\com\seleniumsimplified\webdriver\manager\EnvironmentPropertyReader.java
+C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ManagerPersonalDetailsEnglishTest.java
+C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\AdminAccessEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ManagerSearchEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\com\seleniumsimplified\webdriver\manager\CookieManager.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\com\seleniumsimplified\webdriver\manager\Driver.java
@@ -11,6 +13,7 @@ C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-emplo
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantAssignmentsEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\Functions.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ManagerAccessEnglishTest.java
+C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ManagerHiQEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantSearchEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantAccessEnglishTest.java
 C:\Users\jakobda\eclipse-workspace-TestNG\HiQEmployeeTestRelese_180820\hiq-employee-test\src\test\java\se\hiq\ConsultantImportCVEnglishTest.java

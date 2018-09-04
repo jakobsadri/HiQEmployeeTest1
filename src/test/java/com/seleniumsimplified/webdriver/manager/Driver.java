@@ -39,7 +39,9 @@ public class Driver extends Thread{
     public static final String BROWSER_PROPERTY_NAME = "selenium2basics.webdriver";
 
 
+    //private static final  String DEFAULT_BROWSER = "GOOGLECHROME";
     private static final  String DEFAULT_BROWSER = "FIREFOXMARIONETTE";
+
 
     public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, FIREFOXPORTABLE, FIREFOXMARIONETTE, APPIUM, EDGE}
 
@@ -92,7 +94,7 @@ public class Driver extends Thread{
 
             if("FIREFOXPORTABLE".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.FIREFOXPORTABLE;
-
+            
             // Firefox is for the inbuilt plugin driver, marionette is the newer .exe driver
             // see the
             // package com.seleniumsimplified.webdriver.drivers;
@@ -181,7 +183,7 @@ public class Driver extends Thread{
 
                 case FIREFOXPORTABLE:
 
-                    setDriverPropertyIfNecessary("seleniumsimplified.firefoxportable", "/../FirefoxPortable/FirefoxPortable.exe", "C://webdrivers/FirefoxPortable/FirefoxPortable.exe");
+                    setDriverPropertyIfNecessary("seleniumsimplified.firefoxportable", "/../FirefoxPortable/FirefoxPortable.exe", "C://webdrivers/FirefoxPortable.exe");
 
                     // for WebDriver 3 compatibility I may need to set the FirefoxDriver to use the legacy driver rather than marionette
                     // -Dwebdriver.firefox.marionette=false
@@ -194,9 +196,10 @@ public class Driver extends Thread{
                     break;
 
                 case FIREFOXMARIONETTE:
+                    
 
-
-                    setDriverPropertyIfNecessary("webdriver.gecko.driver", "C:\\Users\\jakobda\\Downloads\\geckodriver-v0.20.1-win64\\geckodriver.exe", "C:\\Users\\jakobda\\Downloads\\geckodriver-v0.20.1-win64\\geckodriver.exe");
+                	setDriverPropertyIfNecessary("webdriver.gecko.driver", "C:\\webdrivers\\geckodriver.exe", "C:\\webdrivers\\geckodriver.exe");
+                    //setDriverPropertyIfNecessary("webdriver.gecko.driver", "C:\\Users\\jakobda\\Downloads\\geckodriver-v0.20.1-win64\\geckodriver.exe", "C:\\Users\\jakobda\\Downloads\\geckodriver-v0.20.1-win64\\geckodriver.exe");
                     //setDriverPropertyIfNecessary("webdriver.gecko.driver", "/usr/local/marionette/geckodriver-0.18.0-OSX", "/usr/local/marionette/geckodriver-0.18.0-OSX");
 
                     //private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
@@ -230,7 +233,7 @@ public class Driver extends Thread{
 
                 case EDGE:
 
-                    setDriverPropertyIfNecessary("webdriver.edge.driver", "/../tools/edgedriver/MicrosoftWebDriver.exe", "C://webdrivers/edgedriver/MicrosoftWebDriver.exe");
+                    setDriverPropertyIfNecessary("webdriver.edge.driver", "C://webdrivers//MicrosoftEdge.exe", "C://webdrivers//MicrosoftEdge.exe");
 
                     aDriver = new EdgeDriver();
                     currentDriver = BrowserName.EDGE;
@@ -238,7 +241,7 @@ public class Driver extends Thread{
 
                 case GOOGLECHROME:
 
-                    setDriverPropertyIfNecessary("webdriver.chrome.driver","/../tools/chromedriver/chromedriver.exe","C://webdrivers/chromedriver/chromedriver.exe");
+                    setDriverPropertyIfNecessary("webdriver.chrome.driver","C://webdrivers//chromedriver.exe","C://webdrivers//chromedriver.exe");
 
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("disable-plugins");

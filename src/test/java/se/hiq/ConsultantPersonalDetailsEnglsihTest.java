@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +60,7 @@ public class ConsultantPersonalDetailsEnglsihTest {
 	// String[] profileCurrentName = new String[profileArraySize];
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 
@@ -69,7 +70,7 @@ public class ConsultantPersonalDetailsEnglsihTest {
 
 		// login
 		Functions.loginAsConsultant_en();
-
+		
 		// Go to personal details
 		Functions.driver.findElement(By.id("ngb-tab-0")).click();
 
@@ -231,10 +232,10 @@ public class ConsultantPersonalDetailsEnglsihTest {
 		Functions.loginAsConsultant_en();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("profile");
+		Functions.verifyConsultantLanguage_en2sv("profile");
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("profile");
+		Functions.verifyConsultantLanguage_sv2en("profile");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

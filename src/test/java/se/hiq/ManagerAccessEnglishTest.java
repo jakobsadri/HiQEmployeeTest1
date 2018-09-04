@@ -23,7 +23,7 @@ public class ManagerAccessEnglishTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ManagerAccessEnglishTest.class);
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 

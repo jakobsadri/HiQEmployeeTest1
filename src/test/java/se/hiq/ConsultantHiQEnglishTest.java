@@ -60,7 +60,7 @@ public class ConsultantHiQEnglishTest {
 	// String[] profileCurrentName = new String[profileArraySize];
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 
@@ -295,10 +295,10 @@ public class ConsultantHiQEnglishTest {
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("profile");
+		Functions.verifyConsultantLanguage_en2sv("profile");
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("profile");
+		Functions.verifyConsultantLanguage_sv2en("profile");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();

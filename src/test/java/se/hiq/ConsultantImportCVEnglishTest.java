@@ -25,7 +25,7 @@ public class ConsultantImportCVEnglishTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConsultantImportCVEnglishTest.class);
 
 	@BeforeClass
-	public static void setupDriver() {
+	public static void beforeTest() {
 
 	}
 
@@ -60,12 +60,12 @@ public class ConsultantImportCVEnglishTest {
 		Functions.driver.findElement(By.id("navImport")).click();
 
 		// Verify language change en to sv
-		Functions.verifyLang_en2sv("import");
+		Functions.verifyConsultantLanguage_en2sv("import");
 
 		Thread.sleep(500);
 
 		// Verify language change sv to en
-		Functions.verifyLang_sv2en("import");
+		Functions.verifyConsultantLanguage_sv2en("import");
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
