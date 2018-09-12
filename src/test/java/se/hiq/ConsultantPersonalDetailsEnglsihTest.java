@@ -9,10 +9,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gargoylesoftware.htmlunit.Page;
+import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.manager.Driver.BrowserName;
 
 /*=========================================================================================================
  * test_002_1: verify consultant profile -> Personal details Consultant English.
@@ -61,12 +65,13 @@ public class ConsultantPersonalDetailsEnglsihTest {
 
 	@BeforeClass
 	public static void beforeTest() {
-
+		//Driver.set(BrowserName.EDGE);
 	}
 
 	@Test
 	public void test_002_1() throws InterruptedException {
 		LOGGER.info("---------------------[Profile -> Personal details Consultant English]---------------------");
+		//WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// login
 		Functions.loginAsConsultant_en();
@@ -84,11 +89,9 @@ public class ConsultantPersonalDetailsEnglsihTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(7000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
+				
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -134,11 +137,8 @@ public class ConsultantPersonalDetailsEnglsihTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
@@ -147,6 +147,7 @@ public class ConsultantPersonalDetailsEnglsihTest {
 	@Test
 	public void test_002_2() throws InterruptedException {
 		LOGGER.info("---------------------[Profile -> Personal details Consultant Swedish]---------------------");
+		//WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// login
 		Functions.loginAsConsultant_sv();
@@ -164,11 +165,9 @@ public class ConsultantPersonalDetailsEnglsihTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(7000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -214,11 +213,8 @@ public class ConsultantPersonalDetailsEnglsihTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
@@ -233,7 +229,9 @@ public class ConsultantPersonalDetailsEnglsihTest {
 
 		// Verify language change en to sv
 		Functions.verifyConsultantLanguage_en2sv("profile");
-
+		
+		Thread.sleep(1000);
+		
 		// Verify language change sv to en
 		Functions.verifyConsultantLanguage_sv2en("profile");
 
@@ -243,7 +241,7 @@ public class ConsultantPersonalDetailsEnglsihTest {
 
 	@AfterClass
 	public static void afterTest() {
-		// Driver.quit();
+		//Functions.driver.quit();
 	}
 
 }

@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +44,7 @@ public class ManagerSearchEnglishTest {
 		profileBox1.clear();
 		profileBox1.sendKeys("Java");
 		profileBox1.sendKeys(Keys.RETURN);
-		Thread.sleep(50);
+		Thread.sleep(1000);
 
 		// Verify search result by searching "Java"
 		String searchResult = Functions.driver

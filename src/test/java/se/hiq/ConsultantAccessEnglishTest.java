@@ -82,6 +82,8 @@ public class ConsultantAccessEnglishTest {
 		// Verify language change en to sv
 		Functions.verifyConsultantLanguage_en2sv("profile");
 
+		Thread.sleep(1000);
+		
 		// Verify language change sv to en
 		Functions.verifyConsultantLanguage_sv2en("profile");
 

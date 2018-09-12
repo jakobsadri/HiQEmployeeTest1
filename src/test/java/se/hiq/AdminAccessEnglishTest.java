@@ -6,6 +6,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,8 +39,8 @@ public class AdminAccessEnglishTest {
 
 	@BeforeClass
 	public static void beforeTest() {
-		//EnvironmentPropertyReader.getPropertyOrEnv("GOOGLECHROME","FIREFOXMARIONETTE");
-		
+		// EnvironmentPropertyReader.getPropertyOrEnv("EDGE","EDGE");
+		//Driver.set(BrowserName.EDGE);
 	}
 
 	@Test
@@ -82,6 +85,8 @@ public class AdminAccessEnglishTest {
 		// Verify language change en to sv
 		Functions.verifyAdminLanguage_en2sv("dashboard");
 
+		Thread.sleep(1000);
+		
 		// Verify language change sv to en
 		Functions.verifyAdminLanguage_sv2en("dashboard");
 

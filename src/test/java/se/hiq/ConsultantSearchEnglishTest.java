@@ -49,7 +49,7 @@ public class ConsultantSearchEnglishTest {
 		profileBox1.clear();
 		profileBox1.sendKeys("Java");
 		profileBox1.sendKeys(Keys.RETURN);
-		Thread.sleep(50);
+		Thread.sleep(1000);
 
 		// Verify search result by searching "Java"
 		String searchResult = Functions.driver

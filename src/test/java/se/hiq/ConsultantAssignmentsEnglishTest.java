@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,20 +42,25 @@ public class ConsultantAssignmentsEnglishTest {
 	@Test
 	public void test_006_1() throws InterruptedException {
 		LOGGER.info("--------------------- [Assignments Consultant] ---------------------");
+		WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
+
 		// login
 		Functions.loginAsConsultant_en();
 
 		// Go to My Assignment
 		Functions.driver.findElement(By.id("navAssignments")).click();
-
+		Thread.sleep(500);
 		// Add assignment
 		Functions.driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
-
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("customer")));
+		
 		WebElement customer = Functions.driver.findElement(By.id("customer"));
-		customer.clear();
 		customer.sendKeys("Computer Games AB");
 		customer.sendKeys(Keys.RETURN);
 		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("startDate")));
+
 		WebElement startDate = Functions.driver.findElement(By.id("startDate"));
 		startDate.clear();
 		startDate.sendKeys("2015-02-11");

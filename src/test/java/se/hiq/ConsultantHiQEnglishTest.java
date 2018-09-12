@@ -1,6 +1,8 @@
 package se.hiq;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -102,11 +104,9 @@ public class ConsultantHiQEnglishTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -164,11 +164,8 @@ public class ConsultantHiQEnglishTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
 
 		// click on Sign out
 		Functions.signOutAsConsultant();
@@ -177,6 +174,7 @@ public class ConsultantHiQEnglishTest {
 	@Test
 	public void test_003_2() throws InterruptedException {
 		LOGGER.info("---------------------[Profile -> HIQ Consultant Swedish] ---------------------");
+		//WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -212,11 +210,9 @@ public class ConsultantHiQEnglishTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 
@@ -274,12 +270,9 @@ public class ConsultantHiQEnglishTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
-
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("consultantMenu")));
+		Thread.sleep(6000);
+		
 		// click on Sign out
 		Functions.signOutAsConsultant();
 	}
@@ -296,6 +289,8 @@ public class ConsultantHiQEnglishTest {
 
 		// Verify language change en to sv
 		Functions.verifyConsultantLanguage_en2sv("profile");
+		
+		Thread.sleep(1000);
 
 		// Verify language change sv to en
 		Functions.verifyConsultantLanguage_sv2en("profile");

@@ -6,7 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,14 +27,27 @@ public class Functions {
 	// -------------------------------------------------
 
 	static WebDriver driver = Driver.get();
-	public static String hiq_url_en = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/en/login";
-	public static String hiq_url_sv = "http://hiqemployee.northeurope.cloudapp.azure.com:8888/sv/login";
+	public static String hiq_url_en = "http://test-employee.northeurope.cloudapp.azure.com:8888/en/login";
+	public static String hiq_url_sv = "http://test-employee.northeurope.cloudapp.azure.com:8888/sv/login";
 	public static String hiq_un_consultant = "testconsultant";
 	public static String Hiq_pw_consultant = "password";
 	public static String hiq_un_manager = "testmanager";
 	public static String hiq_pw_manager = "password";
 	public static String hiq_un_admin = "admin";
 	public static String hiq_pw_admin = "admin";
+	public static int untilTimer_1 = 1000;
+	public static int untilTimer_2 = 500;
+	public static int untilTimer_3 = 5000;
+	public static int timer_100ms = 100;
+	public static int timer_200ms = 200;
+	public static int timer_300ms = 300;
+	public static int timer_500ms = 500;
+	public static int timer_1s = 1000;
+	public static int timer_2s = 2000;
+	public static int timer_5s = 5000;
+	public static int timer_7s = 7000;
+	public static int timer_s = 10000;
+	
 
 	// -------------------------------------------------
 	// Login as consultant En
@@ -41,7 +56,12 @@ public class Functions {
 
 		// open URL
 		driver.get(hiq_url_en);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -52,6 +72,9 @@ public class Functions {
 
 		// click on login
 		driver.findElement(By.id("login")).click();
+
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
 
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
@@ -63,9 +86,13 @@ public class Functions {
 	static void loginAsConsultant_sv() throws InterruptedException {
 
 		// open URL
-
 		driver.get(hiq_url_sv);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -77,8 +104,12 @@ public class Functions {
 		// click on login
 		driver.findElement(By.id("login")).click();
 
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
+
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+
 	}
 
 	// -------------------------------------------------
@@ -88,7 +119,12 @@ public class Functions {
 
 		// open URL
 		driver.get(hiq_url_en);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -100,6 +136,8 @@ public class Functions {
 		// click on login
 		driver.findElement(By.id("login")).click();
 
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
 	}
@@ -111,7 +149,12 @@ public class Functions {
 
 		// open URL
 		driver.get(hiq_url_sv);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -122,6 +165,9 @@ public class Functions {
 
 		// click on login
 		driver.findElement(By.id("login")).click();
+
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
 
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
@@ -134,7 +180,12 @@ public class Functions {
 
 		// open URL
 		driver.get(hiq_url_en);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -145,6 +196,9 @@ public class Functions {
 
 		// click on login
 		driver.findElement(By.id("login")).click();
+
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
 
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
@@ -157,7 +211,12 @@ public class Functions {
 
 		// open URL
 		driver.get(hiq_url_sv);
-		Thread.sleep(50);
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
 		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 
 		// Write username and password
@@ -168,6 +227,9 @@ public class Functions {
 
 		// click on login
 		driver.findElement(By.id("login")).click();
+
+		// Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("main-nav")));
 
 		// Check if login succsess by checking Dashboard title name
 		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
@@ -182,8 +244,12 @@ public class Functions {
 		driver.findElement(By.id("consultantMenu")).click();
 		driver.findElement(By.id("navSignout")).click();
 
-		// verify
-		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 	}
 
 	// -------------------------------------------------
@@ -194,8 +260,13 @@ public class Functions {
 		// click on Sign out
 		driver.findElement(By.id("managerMenu")).click();
 		driver.findElement(By.id("navSignout")).click();
-		// verify
-		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 	}
 
 	// -------------------------------------------------
@@ -205,14 +276,20 @@ public class Functions {
 		// click on Sign out
 		driver.findElement(By.id("adminMenu")).click();
 		driver.findElement(By.id("navSignout")).click();
-		// verify
-		assertEquals("Assert initial page title", Functions.driver.getTitle(), "HIQ Employees");
+
+		// Wait until action is done and find login button
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login")));
+
+		// verify also home page title
+		assertEquals("Assert initial page title", driver.getTitle(), "HIQ Employees");
 	}
 
 	// -------------------------------------------------
 	// Change language Consultant from English to Svenska
 	// -------------------------------------------------
-	static void verifyConsultantLanguage_en2sv(String pageSwedish) {
+	static void verifyConsultantLanguage_en2sv(String pageSwedish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
 		if (pageSwedish.equals("search")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
 		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
@@ -222,6 +299,11 @@ public class Functions {
 		// Change language from En to Sv
 		driver.findElement(By.id("consultantMenu")).click();
 		driver.findElement(By.xpath(pageSwedish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navProfile")));
+		Thread.sleep(timer_200ms);
+
+		//Verify
 		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Uppgifter"));
 	}
@@ -229,7 +311,8 @@ public class Functions {
 	// -------------------------------------------------
 	// Change language Consultant from Svenska to English
 	// -------------------------------------------------
-	static void verifyConsultantLanguage_sv2en(String pageEnglish) {
+	static void verifyConsultantLanguage_sv2en(String pageEnglish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
 		if (pageEnglish.equals("search")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
 		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
@@ -239,6 +322,10 @@ public class Functions {
 		// Change language from Sv to En
 		driver.findElement(By.id("consultantMenu")).click();
 		driver.findElement(By.xpath(pageEnglish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navProfile")));
+		Thread.sleep(timer_200ms);
+		//verify
 		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
 		assertTrue(verify_lang_en.contains("Profile") & verify_lang_en.contains("Assignments"));
 	}
@@ -246,7 +333,9 @@ public class Functions {
 	// -------------------------------------------------
 	// Change language Manager from English to Svenska
 	// -------------------------------------------------
-	static void verifyManagerLanguage_en2sv(String pageSwedish) {
+	static void verifyManagerLanguage_en2sv(String pageSwedish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+
 		if (pageSwedish.equals("search")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
 		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
@@ -256,15 +345,20 @@ public class Functions {
 		// Change language from En to Sv
 		driver.findElement(By.id("managerMenu")).click();
 		driver.findElement(By.xpath(pageSwedish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navProfile")));
+		Thread.sleep(timer_200ms);
 		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-		LOGGER.info(verify_lang_sv);
+		//LOGGER.info(verify_lang_sv);
 		assertTrue(verify_lang_sv.contains("Profil") & verify_lang_sv.contains("Konsultgrupp"));
 	}
 
 	// -------------------------------------------------
 	// Change language Manager from Svenska to English
 	// -------------------------------------------------
-	static void verifyManagerLanguage_sv2en(String pageEnglish) {
+	static void verifyManagerLanguage_sv2en(String pageEnglish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+
 		if (pageEnglish.equals("search")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
 		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
@@ -273,18 +367,26 @@ public class Functions {
 		}
 		// Change language from Sv to En
 		driver.findElement(By.id("managerMenu")).click();
+		Thread.sleep(200);
 		driver.findElement(By.xpath(pageEnglish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navProfile")));
+	
 		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-		LOGGER.info(verify_lang_en);
+		Thread.sleep(timer_200ms);
+		//LOGGER.info(verify_lang_en);
 		assertTrue(verify_lang_en.contains("Search") & verify_lang_en.contains("Profile"));
 	}
 
 	// -------------------------------------------------
-	// Change language Manager from English to Svenska
+	// Change language Admin from English to Svenska
 	// -------------------------------------------------
-	static void verifyAdminLanguage_en2sv(String pageSwedish) {
+	static void verifyAdminLanguage_en2sv(String pageSwedish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+
 		if (pageSwedish.equals("dashboard")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "']";
+			LOGGER.info(pageSwedish);
 		} else if (pageSwedish.equals("profile") || pageSwedish.equals("assignments") || pageSwedish.equals("cv")
 				|| pageSwedish.equals("import")) {
 			pageSwedish = "//a[@href='/sv/" + pageSwedish + "/2']";
@@ -292,15 +394,21 @@ public class Functions {
 		// Change language from En to Sv
 		driver.findElement(By.id("adminMenu")).click();
 		driver.findElement(By.xpath(pageSwedish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navDashboard")));
+		Thread.sleep(timer_200ms);
+
 		String verify_lang_sv = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-		LOGGER.info(verify_lang_sv);
+		//LOGGER.info(verify_lang_sv);
 		assertTrue(verify_lang_sv.contains("Dashboard") & verify_lang_sv.contains("Sök"));
 	}
 
 	// -------------------------------------------------
-	// Change language Manager from Svenska to English
+	// Change language Admin from Svenska to English
 	// -------------------------------------------------
-	static void verifyAdminLanguage_sv2en(String pageEnglish) {
+	static void verifyAdminLanguage_sv2en(String pageEnglish) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, untilTimer_1);
+
 		if (pageEnglish.equals("dashboard")) {
 			pageEnglish = "//a[@href='/en/" + pageEnglish + "']";
 		} else if (pageEnglish.equals("profile") || pageEnglish.equals("assignments") || pageEnglish.equals("cv")
@@ -310,8 +418,12 @@ public class Functions {
 		// Change language from Sv to En
 		driver.findElement(By.id("adminMenu")).click();
 		driver.findElement(By.xpath(pageEnglish)).click();
+		//Wait until action is done
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("navDashboard")));
+		Thread.sleep(timer_200ms);
+	
 		String verify_lang_en = driver.findElement(By.xpath("//div[@class='collapse navbar-collapse']")).getText();
-		LOGGER.info(verify_lang_en);
+		//LOGGER.info(verify_lang_en);
 		assertTrue(verify_lang_en.contains("Dashboard") & verify_lang_en.contains("Search"));
 	}
 }

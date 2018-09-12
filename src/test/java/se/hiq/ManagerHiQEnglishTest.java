@@ -1,6 +1,8 @@
 package se.hiq;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,6 +68,7 @@ public class ManagerHiQEnglishTest {
 	@Test
 	public void test_104_1() throws InterruptedException {
 		LOGGER.info("---------------------[Profile -> HIQ Manager English] ---------------------");
+		WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -76,6 +79,8 @@ public class ManagerHiQEnglishTest {
 
 		// Go to Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("ngb-tab-1")));
 
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
@@ -93,17 +98,16 @@ public class ManagerHiQEnglishTest {
 				profileBox1.clear();
 				profileBox1.sendKeys(profileTestName[i]);
 			}
+			Thread.sleep(100);
 		}
 
 		// Save info
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("managerMenu")));
+		Thread.sleep(7000);
+				
 		// click on Sign out
 		Functions.signOutAsManager();
 
@@ -116,6 +120,8 @@ public class ManagerHiQEnglishTest {
 
 		// Go to Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("ngb-tab-1")));
 
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
@@ -126,6 +132,7 @@ public class ManagerHiQEnglishTest {
 			assertEquals("bypass", Functions.driver.findElement(By.id(profileId[i])).getAttribute("value"),
 					profileTestName1[i]);
 			LOGGER.info(profileBoxInfo + "  =  " + profileTestName1[i]);
+			Thread.sleep(100);
 		}
 
 		// click on Sign out
@@ -140,6 +147,8 @@ public class ManagerHiQEnglishTest {
 
 		// Go to Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("ngb-tab-1")));
 
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
@@ -156,17 +165,15 @@ public class ManagerHiQEnglishTest {
 				profileBox1.clear();
 				profileBox1.sendKeys(profileCurrentName[i]);
 			}
+			Thread.sleep(100);
 		}
 
 		// Save info
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("managerMenu")));
+		Thread.sleep(7000);
 
 		// click on Sign out
 		Functions.signOutAsManager();
@@ -175,6 +182,7 @@ public class ManagerHiQEnglishTest {
 	@Test
 	public void test_104_2() throws InterruptedException {
 		LOGGER.info("---------------------[Profile -> HIQ Manager Swedish] ---------------------");
+		WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// --------------------------------------------------
 		// Add new profile info
@@ -185,6 +193,8 @@ public class ManagerHiQEnglishTest {
 
 		// Go to Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("ngb-tab-1")));
 
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
@@ -202,17 +212,17 @@ public class ManagerHiQEnglishTest {
 				profileBox1.clear();
 				profileBox1.sendKeys(profileTestName[i]);
 			}
+			Thread.sleep(100);
 		}
 
 		// Save info
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
+
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("managerMenu")));
+		Thread.sleep(7000);
+				
 		// click on Sign out
 		Functions.signOutAsManager();
 
@@ -271,11 +281,8 @@ public class ManagerHiQEnglishTest {
 		Functions.driver.findElement(By.id("saveProfile")).click();
 
 		// Wait until the save-message is disappears
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("managerMenu")));
+		Thread.sleep(7000);
 
 		// click on Sign out
 		Functions.signOutAsManager();
@@ -284,18 +291,23 @@ public class ManagerHiQEnglishTest {
 	@Test
 	public void test_104_3() throws InterruptedException {
 		LOGGER.info("-------------------- [Change Language Manager]---------------------");
+		WebDriverWait wait = new WebDriverWait(Functions.driver, Functions.untilTimer_2);
 
 		// login
 		Functions.loginAsManager_en();
 
 		// Go to Profile
 		Functions.driver.findElement(By.id("navProfile")).click();
-
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("ngb-tab-1")));
+		
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
 
 		// Verify language change en to sv
 		Functions.verifyManagerLanguage_en2sv("profile");
+		
+		Thread.sleep(1000);
 
 		// Go to Profile ->HiQ
 		Functions.driver.findElement(By.id("ngb-tab-1")).click();
