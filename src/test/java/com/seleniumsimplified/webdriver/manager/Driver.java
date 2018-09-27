@@ -39,9 +39,10 @@ public class Driver extends Thread {
 	private static boolean avoidRecursiveCall = false;
 	public static final String BROWSER_PROPERTY_NAME = "selenium2basics.webdriver";
 
-	 //private static final String DEFAULT_BROWSER = "GOOGLECHROME";
+	private static final String DEFAULT_BROWSER = "GOOGLECHROME";
 	//private static final String DEFAULT_BROWSER = "FIREFOXMARIONETTE";
-	 private static final String DEFAULT_BROWSER = "EDGE";
+	//private static final String DEFAULT_BROWSER = "EDGE";
+	
 	 
 
 	public enum BrowserName {

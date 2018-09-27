@@ -2,10 +2,10 @@
 <testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16" started-at="2018-09-06T14:13:35Z" finished-at="2018-09-06T14:13:35Z">
+  <suite name="hiq-employee-test by packages" duration-ms="16" started-at="2018-09-12T12:38:35Z" finished-at="2018-09-12T12:38:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16" started-at="2018-09-06T14:13:35Z" finished-at="2018-09-06T14:13:35Z">
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    <test name="se.hiq" duration-ms="16" started-at="2018-09-12T12:38:35Z" finished-at="2018-09-12T12:38:35Z">
+    </test> <!-- se.hiq -->
+  </suite> <!-- hiq-employee-test by packages -->
 </testng-results>
